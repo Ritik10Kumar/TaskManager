@@ -1,0 +1,70 @@
+//Register API
+###
+POST http://127.0.0.1:8000/api/users/signup
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "password123"
+}
+
+//Login API
+###
+POST http://127.0.0.1:8000/api/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "password123"
+}
+
+
+//Create Task API
+###
+POST http://127.0.0.1:8000/api/tasks
+Accept: application/json
+Content-Type: application/json
+Authorization: "Bearer <token>"
+
+{
+  "title": "Complete Project",
+  "description": "Finish the backend and frontend",
+  "priority": "High",
+  "due_date": "2024-01-10",
+  "category_id": 1
+}
+
+
+//Get Task API
+###
+GET http://127.0.0.1:8000/api/tasks
+Accept: application/json
+Content-Type: application/json
+Authorization: "Bearer <token>"
+
+
+
+//Update Task API
+###
+PUT http://127.0.0.1:8000/api/tasks/:id
+Accept: application/json
+Content-Type: application/json
+Authorization: "Bearer <token>"
+
+{
+  "title": "Updated Task Title",
+  "description": "Updated description",
+  "priority": "Medium",
+  "due_date": "2024-02-01",
+  "category_id": 3
+}
+
+
+//Delete Task API
+###
+DELETE http://127.0.0.1:8000/api/tasks/:id
+Accept: application/json
+Content-Type: application/json
+Authorization: "Bearer <token>"
