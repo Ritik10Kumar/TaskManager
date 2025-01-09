@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
-const JWT_SECRET = "your_jwt_secret_key";
+const JWT_SECRET = "123Ritik@";
 
 const userController = {
   signup: async (req, res) => {

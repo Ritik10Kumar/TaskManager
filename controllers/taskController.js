@@ -3,9 +3,9 @@ const Task = require("../models/taskModel");
 
 const taskController = {
   createTask: async (req, res) => {
-    const { title, description, priority, due_date, category_id } = req.body;
+    const { title, description, priority, due_date, category_id,status ,comment} = req.body;
     try {
-      await Task.create(title, description, priority, due_date, category_id, req.userId);
+      await Task.create(title, description, priority, due_date, category_id,status ,req.userId,comment);
       res.status(201).json({ message: "Task created successfully!" });
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -21,9 +21,9 @@ const taskController = {
   },
   updateTask: async (req, res) => {
     const { id } = req.params;
-    const { title, description, priority, due_date, category_id } = req.body;
+    const { title, description, priority, due_date, category_id ,status,comment} = req.body;
     try {
-      await Task.update(id, title, description, priority, due_date, category_id, req.userId);
+      let result = await Task.update(id, title, description, priority, due_date, category_id, req.userId,status,comment);
       res.json({ message: "Task updated successfully!" });
     } catch (error) {
       res.status(500).json({ error: error.message });

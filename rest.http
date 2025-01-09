@@ -5,8 +5,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "john_doe",
-  "password": "password123"
+  "username": "ritik",
+  "password": "ritik123"
 }
 
 //Login API
@@ -16,8 +16,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username": "john_doe",
-  "password": "password123"
+  "username": "ritik",
+  "password": "ritik123"
 }
 
 
@@ -25,15 +25,17 @@ Content-Type: application/json
 ###
 POST http://127.0.0.1:8000/api/tasks
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjQ0MjY0OSwiZXhwIjoxNzM2NDQ2MjQ5fQ.cy0U_ght01c6zfrxgYS-QIi1dxNQlXZBA9yDLVzQjFw
 Content-Type: application/json
-Authorization: "Bearer <token>"
 
 {
   "title": "Complete Project",
   "description": "Finish the backend and frontend",
   "priority": "High",
   "due_date": "2024-01-10",
-  "category_id": 1
+  "category_id": 1,
+  "comment":"This is very critical task",
+  "status":"TO DO"
 }
 
 
@@ -42,23 +44,26 @@ Authorization: "Bearer <token>"
 GET http://127.0.0.1:8000/api/tasks
 Accept: application/json
 Content-Type: application/json
-Authorization: "Bearer <token>"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjQ0MjY0OSwiZXhwIjoxNzM2NDQ2MjQ5fQ.cy0U_ght01c6zfrxgYS-QIi1dxNQlXZBA9yDLVzQjFw
 
 
 
 //Update Task API
 ###
-PUT http://127.0.0.1:8000/api/tasks/:id
+PUT http://127.0.0.1:8000/api/tasks/9
 Accept: application/json
 Content-Type: application/json
-Authorization: "Bearer <token>"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNjQ0MjY0OSwiZXhwIjoxNzM2NDQ2MjQ5fQ.cy0U_ght01c6zfrxgYS-QIi1dxNQlXZBA9yDLVzQjFw
 
 {
   "title": "Updated Task Title",
   "description": "Updated description",
-  "priority": "Medium",
+  "priority": "High",
   "due_date": "2024-02-01",
-  "category_id": 3
+  "category_id": 3,
+  "status":"In Progress",
+  "comment":"Working on this task",
+
 }
 
 
@@ -67,4 +72,4 @@ Authorization: "Bearer <token>"
 DELETE http://127.0.0.1:8000/api/tasks/:id
 Accept: application/json
 Content-Type: application/json
-Authorization: "Bearer <token>"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzYzNjExNDQsImV4cCI6MTczNjM2NDc0NH0.hekEMIOncQ9LT9yO4H38RRlv5LVfY0m5l89q47hw8n4
