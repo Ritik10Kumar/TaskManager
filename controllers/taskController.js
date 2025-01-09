@@ -24,7 +24,10 @@ const taskController = {
     const { title, description, priority, due_date, category_id ,status,comment} = req.body;
     try {
       let result = await Task.update(id, title, description, priority, due_date, category_id, req.userId,status,comment);
-      res.json({ message: "Task updated successfully!" });
+      if(result.rows.length>0){
+        res.json({ message: "Task updated successfully!" });
+      }
+      res.json({ message: "No Task Found" });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
